@@ -10,12 +10,24 @@ source:
   sha256: a9af97cbadfa4218bc0ba229bf989f3c5ec8f72c30f3435bf3e4e9efd7f27d16
   target_directory: src
 
+build:
+  number: 0
+
+about:
+  homepage: https://github.com/nebari-dev/nebi
+  summary: Local-first workspace management for Pixi
+  license: Apache-2.0
+  license_file:
+    - src/LICENSE
+    - library_licenses/
+  documentation: https://github.com/nebari-dev/nebi
+  repository: https://github.com/nebari-dev/nebi
+
 outputs:
   - package:
       name: nebi
       version: ${{ version }}
     build:
-      number: 0
       script:
         - if: unix
           then: build-cli.sh
@@ -35,24 +47,16 @@ outputs:
             - nebi
           strict: true
     about:
-      homepage: https://github.com/nebari-dev/nebi
-      summary: Local-first workspace management for Pixi
+      summary: Local-first workspace management for Pixi (CLI)
       description: |
         Nebi manages Pixi workspaces locally and syncs them to remote servers.
         It provides a CLI and embedded web UI for tracking, pushing, and pulling
         workspace configurations.
-      license: Apache-2.0
-      license_file:
-        - src/LICENSE
-        - library_licenses/
-      documentation: https://github.com/nebari-dev/nebi
-      repository: https://github.com/nebari-dev/nebi
 
   - package:
       name: nebi-desktop
       version: ${{ version }}
     build:
-      number: 0
       script:
         - if: unix
           then: build-desktop.sh
@@ -101,18 +105,11 @@ outputs:
           files:
             - Menu/nebi-desktop-menu.json
     about:
-      homepage: https://github.com/nebari-dev/nebi
       summary: Nebi desktop application - local-first workspace management for Pixi
       description: |
         Nebi Desktop is a native desktop application for managing Pixi workspaces.
         It provides a graphical interface for tracking, pushing, and pulling
         workspace configurations with built-in web UI.
-      license: Apache-2.0
-      license_file:
-        - src/LICENSE
-        - library_licenses/
-      documentation: https://github.com/nebari-dev/nebi
-      repository: https://github.com/nebari-dev/nebi
 
 extra:
   recipe-maintainers:
