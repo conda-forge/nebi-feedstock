@@ -9,11 +9,9 @@ cd frontend && npm install && npm run build && cd ..
 # Copy frontend dist to web embed directory
 rm -rf internal/web/dist && cp -r frontend/dist internal/web/dist
 
-# Install wails CLI (clear GOBIN to avoid "cannot install cross-compiled
-# binaries when GOBIN is set" error during cross-compilation)
-unset GOBIN
-go env -w GOBIN=
-go install github.com/wailsapp/wails/v2/cmd/wails@latest
+# Install wails CLI to the build prefix (host toolchain), avoiding the
+# "cannot install cross-compiled binaries when GOBIN is set" error
+GOBIN="${BUILD_PREFIX}/bin" go install github.com/wailsapp/wails/v2/cmd/wails@latest
 
 # Collect Go dependency licenses
 go-licenses save . --save_path ../library_licenses
