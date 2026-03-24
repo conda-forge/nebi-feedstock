@@ -30,10 +30,8 @@ outputs:
         - nodejs >=20
     tests:
       - script:
-          - if: build_platform == target_platform
-            then:
-              - nebi version
-              - nebi --help
+          - nebi version
+          - nebi --help
       - package_contents:
           bin:
             - nebi
