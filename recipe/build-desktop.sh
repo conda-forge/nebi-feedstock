@@ -17,6 +17,7 @@ GOBIN="${BUILD_PREFIX}/bin" go install github.com/wailsapp/wails/v2/cmd/wails@la
 go-licenses save . --save_path ../library_licenses
 
 # Build desktop app
+mkdir -p "${PREFIX}/bin"
 if [[ "${target_platform}" == "linux-"* ]]; then
     wails build -tags webkit2_41 -ldflags "-s -w -X main.Version=${PKG_VERSION}"
     cp build/bin/Nebi "${PREFIX}/bin/nebi-desktop"
