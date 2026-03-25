@@ -141,6 +141,9 @@ outputs:
             - Menu/nebi-desktop-menu.json
     about:
       summary: Nebi - local-first workspace management for Pixi (CLI + Desktop)
+      license: Apache-2.0
+      license_file:
+        - src/LICENSE
       description: |
         Nebi manages Pixi workspaces locally and syncs them to remote servers.
         This package bundles both the CLI and desktop application, providing
