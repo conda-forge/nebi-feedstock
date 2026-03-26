@@ -11,6 +11,24 @@ Home: https://github.com/nebari-dev/nebi
 
 Package license: Apache-2.0
 
+Summary: Nebi - local-first workspace management for Pixi (CLI + Desktop)
+
+Development: https://github.com/nebari-dev/nebi
+
+Documentation: https://github.com/nebari-dev/nebi
+
+Nebi manages Pixi workspaces locally and syncs them to remote servers.
+This package bundles both the CLI and desktop application, providing
+a graphical interface and command-line tools for tracking, pushing,
+and pulling workspace configurations.
+
+About nebi-cli
+--------------
+
+Home: https://github.com/nebari-dev/nebi
+
+Package license: Apache-2.0
+
 Summary: Local-first workspace management for Pixi (CLI)
 
 Development: https://github.com/nebari-dev/nebi
@@ -97,6 +115,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-nebi-green.svg)](https://anaconda.org/conda-forge/nebi) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/nebi.svg)](https://anaconda.org/conda-forge/nebi) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/nebi.svg)](https://anaconda.org/conda-forge/nebi) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/nebi.svg)](https://anaconda.org/conda-forge/nebi) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-nebi--cli-green.svg)](https://anaconda.org/conda-forge/nebi-cli) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/nebi-cli.svg)](https://anaconda.org/conda-forge/nebi-cli) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/nebi-cli.svg)](https://anaconda.org/conda-forge/nebi-cli) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/nebi-cli.svg)](https://anaconda.org/conda-forge/nebi-cli) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-nebi--desktop-green.svg)](https://anaconda.org/conda-forge/nebi-desktop) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/nebi-desktop.svg)](https://anaconda.org/conda-forge/nebi-desktop) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/nebi-desktop.svg)](https://anaconda.org/conda-forge/nebi-desktop) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/nebi-desktop.svg)](https://anaconda.org/conda-forge/nebi-desktop) |
 
 Installing nebi
@@ -109,16 +128,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `nebi, nebi-desktop` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `nebi, nebi-cli, nebi-desktop` can be installed with `conda`:
 
 ```
-conda install nebi nebi-desktop
+conda install nebi nebi-cli nebi-desktop
 ```
 
 or with `mamba`:
 
 ```
-mamba install nebi nebi-desktop
+mamba install nebi nebi-cli nebi-desktop
 ```
 
 It is possible to list all of the versions of `nebi` available on your platform with `conda`:

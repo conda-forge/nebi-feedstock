@@ -11,40 +11,9 @@ source:
   target_directory: src
 
 build:
-  number: 1
+  number: 0
 
 outputs:
-  - package:
-      name: nebi
-      version: ${{ version }}
-    build:
-      script:
-        - if: unix
-          then: build-cli.sh
-        - if: win
-          then: build-cli.bat
-    requirements:
-      build:
-        - ${{ compiler("go-nocgo") }}
-        - go-licenses
-        - nodejs >=20
-      run:
-        - nebi-desktop ==${{ version }}
-    tests:
-      - script:
-          - nebi version
-          - nebi --help
-      - package_contents:
-          bin:
-            - nebi
-          strict: true
-    about:
-      summary: Local-first workspace management for Pixi (CLI)
-      description: |
-        Nebi manages Pixi workspaces locally and syncs them to remote servers.
-        It provides a CLI and embedded web UI for tracking, pushing, and pulling
-        workspace configurations.
-
   - package:
       name: nebi-desktop
       version: ${{ version }}
@@ -102,6 +71,84 @@ outputs:
         Nebi Desktop is a native desktop application for managing Pixi workspaces.
         It provides a graphical interface for tracking, pushing, and pulling
         workspace configurations with built-in web UI.
+
+  - package:
+      name: nebi-cli
+      version: ${{ version }}
+    build:
+      script:
+        - if: unix
+          then: build-cli.sh
+        - if: win
+          then: build-cli.bat
+    requirements:
+      build:
+        - ${{ compiler("go-nocgo") }}
+        - go-licenses
+        - nodejs >=20
+    tests:
+      - script:
+          - nebi version
+          - nebi --help
+      - package_contents:
+          bin:
+            - nebi
+          strict: true
+    about:
+      summary: Local-first workspace management for Pixi (CLI)
+      description: |
+        Nebi manages Pixi workspaces locally and syncs them to remote servers.
+        It provides a CLI and embedded web UI for tracking, pushing, and pulling
+        workspace configurations.
+
+  - package:
+      name: nebi
+      version: ${{ version }}
+    build:
+      always_include_files:
+        - if: unix
+          then:
+            - bin/nebi
+            - bin/nebi-desktop
+        - if: win
+          then:
+            - Library/bin/nebi.exe
+            - Library/bin/nebi-desktop.exe
+        - Menu/**
+    requirements:
+      host:
+        - nebi-cli ==${{ version }}
+        - nebi-desktop ==${{ version }}
+      run:
+        - nebi-cli ==${{ version }}
+        - nebi-desktop ==${{ version }}
+    tests:
+      - script:
+          - nebi version
+          - nebi --help
+      - script:
+          - if: unix
+            then:
+              - test -f $PREFIX/bin/nebi-desktop
+          - if: win
+            then:
+              - if exist %LIBRARY_BIN%\nebi-desktop.exe (exit 0) else (exit 1)
+      - package_contents:
+          bin:
+            - nebi
+            - nebi-desktop
+          files:
+            - Menu/nebi-desktop-menu.json
+    about:
+      summary: Nebi - local-first workspace management for Pixi (CLI + Desktop)
+      license: Apache-2.0
+      license_file:
+        - src/LICENSE
+      description: |
+        Nebi manages Pixi workspaces locally and syncs them to remote servers.
+        This package bundles both the CLI and desktop application, providing
+        a graphical interface and command-line tools for tracking, pushing,
+        and pulling workspace configurations.
 
 about:
   homepage: https://github.com/nebari-dev/nebi
