@@ -1,5 +1,5 @@
 context:
-  version: "0.10.0"
+  version: "0.10.1"
 
 recipe:
   name: nebi-packages
@@ -7,7 +7,7 @@ recipe:
 
 source:
   url: https://github.com/nebari-dev/nebi/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: ec8210856dd847c750f97ff227387e29887b81514e69461e4b41417470157a90
+  sha256: c5efb90c553f2b8ecb44a611ed96ef4bd9e511986dbb8b5e0c2a58e79508f02a
   target_directory: src
 
 build:
