@@ -233,4 +233,5 @@ Feedstock Maintainers
 =====================
 
 * [@Adam-D-Lewis](https://github.com/Adam-D-Lewis/)
+* [@viniciusdc](https://github.com/viniciusdc/)
 
