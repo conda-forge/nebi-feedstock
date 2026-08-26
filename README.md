@@ -263,5 +263,7 @@ Feedstock Maintainers
 =====================
 
 * [@Adam-D-Lewis](https://github.com/Adam-D-Lewis/)
+* [@aktech](https://github.com/aktech/)
+* [@pmeier](https://github.com/pmeier/)
 * [@viniciusdc](https://github.com/viniciusdc/)
 
