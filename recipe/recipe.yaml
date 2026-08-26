@@ -1,5 +1,5 @@
 context:
-  version: "0.13"
+  version: "0.14"
 
 recipe:
   name: nebi-packages
@@ -7,7 +7,7 @@ recipe:
 
 source:
   url: https://github.com/nebari-dev/nebi/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 308cad55dffd04aad9a1435d4fc49c299de03963983bafececa964a26b085db1
+  sha256: 9fc3f24b434ed176e3344ebf32dab90d089272b3ebee58d0f36258b86ac804a3
   target_directory: src
 
 build:
@@ -25,7 +25,7 @@ outputs:
           then: build-desktop.bat
     requirements:
       build:
-        - ${{ compiler("go-cgo") }}
+        - ${{ compiler("go-cgo") }} >=1.24
         - ${{ compiler("c") }}
         - ${{ compiler("cxx") }}
         - ${{ stdlib("c") }}
@@ -164,3 +164,5 @@ extra:
   recipe-maintainers:
     - viniciusdc
     - Adam-D-Lewis
+    - aktech
+    - pmeier
